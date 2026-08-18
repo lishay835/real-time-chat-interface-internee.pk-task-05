@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA - Chat Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-theme">
+
+    <!-- ==============================
+         MAIN APP
+    =============================== -->
+    <div class="app-container">
+
+
+        <!-- ==============================
+             LEFT SIDEBAR
+        =============================== -->
+        <aside class="sidebar">
+
+            <!-- NOVA PROFILE -->
+            <div class="assistant-profile">
+
+                <div class="bot-logo">
+                    <svg viewBox="0 0 64 64" class="bot-icon">
+                        <rect x="12" y="18" width="40" height="32" rx="10"></rect>
+
+                        <circle cx="25" cy="33" r="4"></circle>
+                        <circle cx="39" cy="33" r="4"></circle>
+
+                        <path d="M24 42 Q32 47 40 42"></path>
+
+                        <line x1="32" y1="18" x2="32" y2="10"></line>
+                        <circle cx="32" cy="8" r="3"></circle>
+                    </svg>
+                </div>
+
+                <div class="assistant-info">
+                    <h2>NOVA</h2>
+
+                    <p>
+                        <span class="online-dot"></span>
+                        Online
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- NEW CHAT -->
+            <button class="new-chat-btn" id="newChatBtn">
+                <span class="plus-icon">+</span>
+                <span>New Chat</span>
+            </button>
+
+
+            <!-- ==============================
+                 RECENT CHAT HISTORY
+            =============================== -->
+            <div class="recent-section">
+
+                <div class="section-title">
+                    <h3>Recent Chats</h3>
+                </div>
+
+                <!--
+                    JavaScript will automatically
+                    add conversation history here.
+                -->
+                <div class="chat-history" id="chatHistory">
+
+                </div>
+
+            </div>
+
+
+            <!-- SIDEBAR BOTTOM -->
+            <div class="sidebar-bottom">
+
+                <button class="clear-chat-btn" id="clearChatBtn">
+
+                    <span class="trash-icon">♲</span>
+
+                    <span>Clear Chat</span>
+
+                </button>
+
+                <button class="sidebar-theme-btn" id="sidebarThemeBtn">
+
+                    <span>◐</span>
+
+                    <span>Change Theme</span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ==============================
+             MAIN CHAT SECTION
+        =============================== -->
+        <main class="chat-area">
+
+
+            <!-- ==============================
+                 CHAT HEADER
+            =============================== -->
+            <header class="chat-header">
+
+                <div class="chat-title">
+
+                    <div class="header-bot-logo">
+
+                        <svg viewBox="0 0 64 64" class="bot-icon">
+
+                            <rect
+                                x="12"
+                                y="18"
+                                width="40"
+                                height="32"
+                                rx="10">
+                            </rect>
+
+                            <circle cx="25" cy="33" r="4"></circle>
+
+                            <circle cx="39" cy="33" r="4"></circle>
+
+                            <path d="M24 42 Q32 47 40 42"></path>
+
+                            <line
+                                x1="32"
+                                y1="18"
+                                x2="32"
+                                y2="10">
+                            </line>
+
+                            <circle
+                                cx="32"
+                                cy="8"
+                                r="3">
+                            </circle>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="chat-title-text">
+
+                        <h1>NOVA</h1>
+
+                        <p>
+                            <span class="online-dot"></span>
+                            Online
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HEADER ACTIONS -->
+                <div class="header-actions">
+
+                    <button
+                        class="header-btn"
+                        id="headerThemeBtn"
+                        title="Change Theme">
+
+                        ◐
+
+                    </button>
+
+
+                    <button
+                        class="header-btn"
+                        id="headerClearBtn"
+                        title="Clear Chat">
+
+                        ⋮
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ==============================
+                 MESSAGES
+            =============================== -->
+            <section
+                class="messages-container"
+                id="messagesContainer">
+
+
+                <!-- DATE -->
+                <div class="date-label">
+                    <span>Today</span>
+                </div>
+
+
+                <!-- ==============================
+                     WELCOME MESSAGE
+                =============================== -->
+                <div class="message-row bot-message">
+
+                    <div class="message-avatar">
+
+                        <svg
+                            viewBox="0 0 64 64"
+                            class="small-bot-icon">
+
+                            <rect
+                                x="12"
+                                y="18"
+                                width="40"
+                                height="32"
+                                rx="10">
+                            </rect>
+
+                            <circle cx="25" cy="33" r="4"></circle>
+
+                            <circle cx="39" cy="33" r="4"></circle>
+
+                            <path d="M24 42 Q32 47 40 42"></path>
+
+                            <line
+                                x1="32"
+                                y1="18"
+                                x2="32"
+                                y2="10">
+                            </line>
+
+                            <circle
+                                cx="32"
+                                cy="8"
+                                r="3">
+                            </circle>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="message-content">
+
+                        <div class="message-bubble">
+
+                            <p>
+                                Hello! 👋 I'm NOVA.
+                                How can I help you today?
+                            </p>
+
+                            <span class="message-time">
+                                Just now
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    ALL NEW MESSAGES WILL BE
+                    INSERTED HERE BY JAVASCRIPT.
+                -->
+
+            </section>
+
+
+
+            <!-- ==============================
+                 TYPING INDICATOR
+            =============================== -->
+            <div
+                class="typing-indicator"
+                id="typingIndicator">
+
+                <div class="typing-avatar">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        class="small-bot-icon">
+
+                        <rect
+                            x="12"
+                            y="18"
+                            width="40"
+                            height="32"
+                            rx="10">
+                        </rect>
+
+                        <circle cx="25" cy="33" r="4"></circle>
+
+                        <circle cx="39" cy="33" r="4"></circle>
+
+                        <path d="M24 42 Q32 47 40 42"></path>
+
+                        <line
+                            x1="32"
+                            y1="18"
+                            x2="32"
+                            y2="10">
+                        </line>
+
+                        <circle
+                            cx="32"
+                            cy="8"
+                            r="3">
+                        </circle>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="typing-bubble">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 MESSAGE INPUT
+            =============================== -->
+            <div class="message-input-area">
+
+                <form
+                    class="message-form"
+                    id="messageForm">
+
+
+                    <!-- INPUT -->
+                    <input
+                        type="text"
+                        id="messageInput"
+                        class="message-input"
+                        placeholder="Type your message..."
+                        autocomplete="off"
+                        maxlength="500">
+
+
+                    <!-- EMOJI BUTTON -->
+                    <button
+                        type="button"
+                        class="emoji-btn"
+                        id="emojiBtn"
+                        title="Emoji">
+
+                        ☺
+
+                    </button>
+<div class="emoji-picker" id="emojiPicker">
+    <button type="button">😀</button>
+    <button type="button">😂</button>
+    <button type="button">😊</button>
+    <button type="button">❤️</button>
+    <button type="button">👍</button>
+    <button type="button">👋</button>
+    <button type="button">😎</button>
+    <button type="button">🎉</button>
+    <button type="button">😢</button>
+    <button type="button">😍</button>
+    <button type="button">🤔</button>
+    <button type="button">🔥</button>
+    <button type="button">✨</button>
+    <button type="button">🙌</button>
+    <button type="button">💡</button>
+    <button type="button">🤗</button>
+    <button type="button">😄</button>
+    <button type="button">😴</button>
+</div>
+
+
+                    <!-- SEND -->
+                    <button
+                        type="submit"
+                        class="send-btn"
+                        id="sendBtn"
+                        title="Send Message">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            class="send-icon">
+
+                            <path d="M3 20 L21 12 L3 4 L6 11 L16 12 L6 13 Z">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </form>
+
+
+                <p class="input-hint">
+                    NOVA can help with basic conversations,
+                    web development and study topics.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ==============================
+         THEME MENU
+    =============================== -->
+    <div
+        class="theme-menu"
+        id="themeMenu">
+
+
+        <div class="theme-menu-header">
+
+            <div>
+                <h3>Choose Theme</h3>
+
+                <p>
+                    Customize your chat experience
+                </p>
+            </div>
+
+
+            <button
+                id="closeThemeMenu"
+                class="close-theme-btn">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- THEME OPTIONS -->
+        <div class="theme-options">
+
+
+            <!-- LIGHT -->
+            <button
+                class="theme-option light-option"
+                data-theme="light-theme">
+
+                <span
+                    class="theme-preview light-preview">
+                </span>
+
+                <span class="theme-name">
+                    Light
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <!-- DARK -->
+            <button
+                class="theme-option dark-option"
+                data-theme="dark-theme">
+
+                <span
+                    class="theme-preview dark-preview">
+                </span>
+
+                <span class="theme-name">
+                    Dark
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <!-- WARM -->
+            <button
+                class="theme-option warm-option"
+                data-theme="warm-theme">
+
+                <span
+                    class="theme-preview warm-preview">
+                </span>
+
+                <span class="theme-name">
+                    Warm
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <!-- FOREST -->
+            <button
+                class="theme-option forest-option"
+                data-theme="forest-theme">
+
+                <span
+                    class="theme-preview forest-preview">
+                </span>
+
+                <span class="theme-name">
+                    Forest
+                </span>
+
+                <span class="theme-check">
+                    ✓
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==============================
+         THEME OVERLAY
+    =============================== -->
+    <div
+        class="theme-overlay"
+        id="themeOverlay">
+    </div>
+
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+    <script src="script.js"></script>
+
+</body>
+</html>
